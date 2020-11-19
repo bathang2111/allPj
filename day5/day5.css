@@ -1,0 +1,67 @@
+html {
+    width: 100%;
+    height: 100%
+}
+
+body {
+    width: 100%;
+    height: 100%
+}
+
+.mains {
+    display: flex;
+    background: #ff0;
+    height: 100%;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition:flex 1s;
+}
+
+.main1{background-image: url(image/anh-anime-phong-canh-dep_093817122.jpg);}
+.main2{background-image: url(image/chup-anh-phong-canh-thu-vi.jpg);}
+.main3{background-image: url(image/landscape-photography_1645.jpg);}
+.main4{background-image: url(image/anh-anime-phong-canh-dep_093817122.jpg);}
+.main5{background-image: url(image/chup-anh-phong-canh-thu-vi.jpg);}
+
+.main>*:first-child {
+    transform: translateY(-100%);
+}
+
+.main.open-create>*:first-child {
+    transform: translateY(0);
+}
+
+.main>*:last-child {
+    transform: translateY(100%);
+}
+
+.main.open-create>*:last-child {
+    transform: translateY(0);
+}
+
+.main>* {
+    /*main's item*/
+    flex: 1;
+    /*border: 2px solid black;*/
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.1s;
+}
+
+.main>span {
+    font-size: 1.5em;
+    color: #3B0F8D;
+}
+
+.playing {
+    flex: 5;
+    font-size: 3em;
+}

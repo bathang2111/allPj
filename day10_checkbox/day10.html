@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="day10.css">
+    <title>day10</title>
+</head>
+
+<body>
+    <div class="list">
+        <div class="item">
+            <input type="checkbox">
+            <span>day la checkbox</span>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <span>day la checkbox</span>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <span>day la checkbox</span>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <span>day la checkbox</span>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <span>day la checkbox</span>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <span>day la checkbox</span>
+        </div>
+    </div>
+    <!-- SCRIPT -->
+    <script>
+    let lastcheck;
+    const checkBoxes = document.querySelectorAll('input');
+
+    function aaa(e) {
+        console.log(e);
+        let between = false;
+        if (e.shiftKey&&this.checked) {
+            console.log(this);
+            checkBoxes.forEach(checkbox => {
+                if (checkbox === this || checkbox === lastcheck) {
+                    between = !between;
+                    console.log('yes');}
+                if (between){checkbox.checked = true;}
+            });
+        }
+        lastcheck = this;
+    }
+
+    checkBoxes.forEach(checkbox => checkbox.addEventListener('click', aaa));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>follow</title>
+    <link rel="stylesheet" type="text/css" href="follow.css">
+</head>
+
+<body>
+    	<ul>
+    		<li><a href="">home1234</a></li>
+    		<li><a href="">one</a></li>
+    		<li><a href="">two</a></li>
+    		<li><a href="">three</a></li>
+    		<li><a href="">four</a></li>
+    	</ul>
+
+    <script>
+    	const linkk=document.querySelectorAll('a');
+    	const hilght=document.createElement('span');
+    	hilght.classList.add('hilght');
+    	document.body.append(hilght);
+
+    	function hightlight () {
+    		const a=this.getBoundingClientRect();
+    		//hilght.style.width=`${a.width}px`;
+    		 hilght.style = `
+    		 width:${a.width}px;
+    		 height:${a.height}px;
+    		 transform: translate(${a.left}px,${a.top}px);
+    		  `;
+
+    	}
+    	linkk.forEach(link=>link.addEventListener('mouseenter',hightlight));
+    </script>
+</body>
+
+</html>

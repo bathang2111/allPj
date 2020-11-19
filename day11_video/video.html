@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>custom video</title>
+    <link rel="stylesheet" type="text/css" href="video.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="view">
+        <div class="videocustom">
+            <video class="videocustom__control">
+                <source src="video/1586272564.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="custom">
+            <div>
+                <input type="range" name="time_range" min="0" value="0" step="1">
+            </div>
+            <div>
+                <button id="btn-pause"><i class="fa fa-play"></i></button>
+                <button id="btn-volum"></button>
+                <input type="range" name="volum_range" min="0" max="10" value="10" step="2" data-volum="db">
+            </div>
+        </div>
+    </div>
+    <script>
+    const video = document.querySelector('video');
+    const btn_control = document.querySelector('#btn-pause');
+    const range_time = document.querySelector('input[name="time_range"]');
+    const range_volum = document.querySelector('input[name="volum_range"]');
+    const icons = document.querySelector('i');
+
+    const aaa=video.paused ? 
+
+    //set volum
+    function setvolum () {
+    	video.volume=this.value/10;
+    }
+    //range_volum.addEventListener('change',setvolum);
+    range_volum.addEventListener('mousemove',setvolum);
+
+    //play and pause
+    const timeEnd=video.duration;//do dai video.
+    range_time.max=timeEnd;
+
+    function controls() {
+        if (video.paused) {
+            video.play();
+            icons.classList.remove('fa-play');
+            icons.classList.add('fa-pause');
+
+           setInterval(()=>{
+           		range_time.value=video.currentTime;
+           		range_time.style.setProperty('value',range_time.value+'s');
+           		range_time.addEventListener('change',()=>{
+           			video.currentTime=range_time.value;
+           		});
+           },1000);
+        } else {
+            video.pause();
+            icons.classList.remove('fa-pause');
+            icons.classList.add('fa-play');
+        }
+    }
+    video.addEventListener('click', controls);
+    btn_control.addEventListener('click', controls);
+
+
+
+    //play and pause
+
+    
+    
+    </script>
+</body>
+
+</html>

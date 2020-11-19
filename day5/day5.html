@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>day5</title>
+    <link rel="stylesheet" type="text/css" href="./day5.css">
+</head>
+
+<body>
+    <div class="mains">
+        <div class="main main1" data-key="1">
+            <span>tren</span>
+            <span>giua</span>
+            <span>duoi</span>
+        </div>
+        <div class="main main2" data-key="2">
+            <span>tren</span>
+            <span>giua</span>
+            <span>duoi</span>
+        </div>
+        <div class="main main3" data-key="3">
+            <span>tren</span>
+            <span>giua</span>
+            <span>duoi</span>
+        </div>
+        <div class="main main4" data-key="4">
+            <span>tren</span>
+            <span>giua</span>
+            <span>duoi</span>
+        </div>
+        <div class="main main5" data-key="5">
+            <span>tren</span>
+            <span>giua</span>
+            <span>duoi</span>
+        </div>
+    <script>
+    const panels = document.querySelectorAll('.main');
+
+    function playing() {
+        this.classList.toggle('playing');
+    }
+    panels.forEach(panel => panel.addEventListener('click', playing));
+
+    function removing() {
+     	this.classList.toggle('open-create');
+    }
+    panels.forEach(panel => panel.addEventListener('transitionend', removing));
+
+    </script>
+</body>
+</div>
+
+</html>

@@ -1,0 +1,38 @@
+body,html{
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.main{
+	height: 100%;
+	width: 60%;
+	background: rgba(120,100,50,0.5);
+	position: relative;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	opacity: 0.5;
+}
+.blom{
+	width: 75px;
+	background: rgba(1,1,200,0.5);
+	transition: all 0.1;
+}
+.ontop{
+	position: absolute;
+	top: 0;
+	right: -100px;
+}
+.onbot{
+	position: absolute;
+	bottom: 0;
+	right: -100px;
+}
+.bird{
+	width: 40px;
+	height: 40px;
+	top: 300px;
+	left: 200px;
+	position: absolute;
+	background: #f00;
+}

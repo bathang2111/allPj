@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>reduce</title>
+</head>
+
+<body>
+    <ul>
+        <li data-time="1:05">bai 1</li>
+        <li data-time="2:05">bai 1</li>
+        <li data-time="3:05">bai 1</li>
+        <li data-time="4:05">bai 1</li>
+        <li data-time="5:05">bai 1</li>
+        <li data-time="6:05">bai 1</li>
+        <li data-time="7:05">bai 1</li>
+        <li data-time="8:05">bai 1</li>
+        <li data-time="9:05">bai 1</li>
+        <li data-time="10:05">bai 1</li>
+        <li data-time="11:05">bai 1</li>
+        <li data-time="12:05">bai 1</li>
+        <li data-time="13:05">bai 1</li>
+        <li data-time="14:05">bai 1</li>
+        <li data-time="15:05">bai 1</li>
+        <li data-time="15:05">bai 1</li>
+        <li data-time="16:05">bai 1</li>
+        <li data-time="17:05">bai 1</li>
+        <li data-time="18:05">bai 1</li>
+        <li data-time="18:05">bai 1</li>
+        <li data-time="19:05">bai 1</li>
+        <li data-time="111:05">bai 1</li>
+    </ul>
+    <script>
+    const seconds = Array.from(document.querySelectorAll('[data-time]'));
+
+    const secs = seconds
+        .map(sec => sec.dataset.time)
+        .map(giay => {
+            const [mins, ses] = giay.split(':').map(parseFloat);
+            return (mins * 60) + ses;
+        }).reduce((a,b)=>a+b);
+        console.log(secs)
+    </script>
+</body>
+
+</html>

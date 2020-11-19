@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div class="hero">
+        <h1>text</h1>
+    </div>
+    <style>
+        .hero{
+    		width: 800px;
+    		height: 600px;
+    		background: rgba(250,250,0,0.3);
+    		display: flex;
+    		justify-content: center;
+    		align-items: center;
+    	}
+    	h1{
+    		font-size: 6em;
+    		text-shadow: 5px 15px rgba(250,250,0,0.5);
+    	}
+    </style>
+    <script type="text/javascript">
+    const hero = document.querySelector('.hero');
+    const text = hero.querySelector('h1');
+
+    function texxt(e) {
+        const { offsetWidth: width, offsetHeight: heigh } = hero;
+        let { offsetX: x, offsetY: y } = e;
+
+        if (this !== e.target) {
+            x = x + e.target.offsetLeft;
+            y = y + e.target.offsetTop;
+        }
+
+        const playX = Math.round((x / width * 100) - 50);
+        const playY = Math.round((y / heigh * 100) - 50);
+        console.log(playX + '***' + playY);
+
+
+        text.style.textShadow = `
+        ${playX}px ${playY}px 0 rgba(0,255,255,0.7),
+         ${playX*-1}px ${playY}px 0 rgba(255,255,0,0.7),
+        ${playY}px ${playX*-1}px 0 rgba(255,0,255,0.7),
+        ${playY*-1}px ${playX*-1}px 0 rgba(255,0,255,0.7)
+
+        `;
+
+    }
+    hero.addEventListener('mousemove', texxt);
+    </script>
+</body>
+
+</html>

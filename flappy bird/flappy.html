@@ -1,0 +1,82 @@
+  <!DOCTYPE html>
+<html>
+
+<head>
+    <title>flappy bird</title>
+    <link rel="stylesheet" type="text/css" href="flappy.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="main">
+        <div class="bird"></div>
+    </div>
+    <script>
+    const bloms = document.querySelectorAll('.blom');
+    const main = document.querySelector('.main');
+
+    function randoms() {
+        return Math.round(Math.random() * (300 - 1) + 1);
+    }
+
+    function createDiv() {
+        let highTop = randoms();
+        let highBot = main.offsetHeight - highTop - 200;
+
+        let ontop = document.createElement('div');
+        ontop.classList.add('blom');
+        ontop.classList.add('ontop');
+        ontop.style = `height:${highTop}px`;
+        main.appendChild(ontop);
+
+        let onbot = document.createElement('div');
+        onbot.classList.add('blom');
+        onbot.classList.add('onbot');
+        onbot.style = `height:${highBot}px`;
+        main.appendChild(onbot);
+        return [ontop, onbot];
+    }
+
+    let check = true;
+
+    function play() {
+        const divs = createDiv();
+        let x = 5;
+
+        function move() {
+            divs.forEach(div => div.style.transform = `translateX(${-1*x}px)`);
+            x += 5;
+            if (x == 900) divs.forEach(div => div.remove()); //romovediv
+        }
+        setInterval(move, 20);
+        check = false;
+    }
+    const bird = document.querySelector('.bird');
+    let jumpx = 0;
+
+    function move() {
+        bird.style.transform = `translateY(${jumpx}px)`;
+        jumpx = jumpx +1;
+        var x=bird.getBoundingClientRect();
+        console.log(x.top);
+    }
+
+    function jump() {
+        setInterval(move, 2);
+        var x = bird.getBoundingClientRect();
+        console.log(x.top);
+    }
+
+    //************
+    window.addEventListener('keydown', function(e) {
+        if (e.keyCode != 32) return;
+        if (check) {
+            setInterval(play, 2000);
+            check = false;
+        }
+        jump();
+    });
+    </script>
+</body>
+
+</html>

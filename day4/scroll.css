@@ -1,0 +1,23 @@
+html body {
+    font-size: 20px;
+}
+
+.roll {
+    margin: 0px 20em;
+}
+
+h1 {
+    background: yellow;
+}
+
+.image {
+    height: 300px;
+    background: black;
+    
+}
+
+img {
+	opacity: 0;
+    transform: translateX(-100%);
+    transition: all 1.5s;
+}
